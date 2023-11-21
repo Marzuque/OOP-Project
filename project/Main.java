@@ -20,19 +20,26 @@ class FirstLevel
 		Random r1 = new Random();
 		int randomNumber = r1.nextInt(10) + 1; 
 		int guess;
+		int attempts = 3;
 		System.out.println("\nThis is the first level. Before you proceed any further, complete this level. ");
 		do 
 		{
-			
+			if(attempts == 0)
+			{
+				//decrement players' health
+				attempts = 3;
+			}
 			System.out.print("\nGuess the number (1-10): ");
 			guess = in.nextInt();
 			if (guess < randomNumber)
 			{
 				System.out.println("Too low! Try again.");
+				attempts--;
 			} 
 			else if (guess > randomNumber) 
 			{
 				System.out.println("Too high! Try again.");
+				attempts--;
 			} 
 			else
 			{
